@@ -3,13 +3,6 @@ SHELL := /bin/bash
 # CI sets GIT_BRANCH for us, so use this as default if not in CI
 GIT_BRANCH   ?= $(shell git symbolic-ref --short HEAD)
 
-
-mkfile_path  := $(abspath $(lastword $(MAKEFILE_LIST)))
-project_dir  := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
-# Autoconf-style vars
-top_builddir := $(basename $(patsubst %/,%,$(dir $(mkfile_path))))
-top_srcdir   ?= $(top_builddir)/src # Override this if your project differs
-
 build_stamps_dir ?= $(top_builddir)/.uncommon-build-stamps
 
 # Default targets. Override to change "uncommon named" targets (e.g. what `push`, `package`, `save-image`, etc... points to).
