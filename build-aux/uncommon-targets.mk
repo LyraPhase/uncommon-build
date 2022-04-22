@@ -16,7 +16,8 @@ uninstall-uncommon-build: ## Uninstall .uncommon-build submodule
 	git submodule deinit -f .uncommon-build
 	git rm .gitmodules && \
 	  git commit -m 'Uninstalling .uncommon-build submodule'
-	rm -rf .git/modules/.uncommon-build/
+	rm -rf $(top_builddir)/.git/modules/.uncommon-build/
+	rm -rf $(top_builddir)/.uncommon-build/
 	@echo -e "$(emoji_wizard_zap) $(c_hi_green)Oh... what a world, what a world$(c_reset)"
 
 clean::
