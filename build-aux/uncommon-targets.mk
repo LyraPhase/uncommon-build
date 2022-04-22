@@ -14,7 +14,8 @@ update-uncommon-build: ## Update to latest $(COMMON_BUILD_REF). Default: origin/
 uninstall-uncommon-build: ## Uninstall .uncommon-build submodule
 	@echo -e "$(emoji_trash_sad)$(c_b_hi_red) Uninstalling '.uncommon-build' and '.gitmodules'$(c_reset)" >&2
 	git submodule deinit -f .uncommon-build
-	git rm .gitmodules && \
+	git rm $(top_builddir)/.gitmodules && \
+	  git rm -rf $(top_builddir)/.uncommon-build && \
 	  git commit -m 'Uninstalling .uncommon-build submodule'
 	rm -rf $(top_builddir)/.git/modules/.uncommon-build/
 	rm -rf $(top_builddir)/.uncommon-build/
