@@ -1,3 +1,4 @@
+# vi: set fileencoding=utf-8
 # Emoji Macros
 # uncommon-build colorful emoji icons
 emoji_happy := 🫲 $(c_b_hi_yellow)$(c_bg_black)($(c_reset)$(c_bg_black)🌀$(c_b_hi_white)˒̫̮$(c_reset)$(c_bg_black)🔍$(c_b_hi_yellow))$(c_reset)$(c_bg_black)🫴  $(c_reset)
