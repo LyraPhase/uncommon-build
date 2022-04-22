@@ -9,6 +9,7 @@ build_aux    := $(top_builddir)/.uncommon-build/build-aux
 include $(build_aux)/platform-detect.mk
 include $(build_aux)/vars/main_vars.mk
 include $(build_aux)/vars/ansicolor_vars.mk
+include $(build_aux)/vars/emoji_vars.mk
 
 # Language Specific includes
 ifeq (go,$(PROJECT_LANG))
