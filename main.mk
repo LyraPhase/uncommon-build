@@ -1,5 +1,5 @@
 mkfile_path  := $(abspath $(lastword $(MAKEFILE_LIST)))
-project_dir  := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
+project_dir  := $(notdir $(patsubst %/,%,$(dir $(realpath $(mkfile_path)/../))))
 # Autoconf-style vars
 top_builddir := $(basename $(patsubst %/,%,$(dir $(mkfile_path))))
 top_srcdir   ?= $(top_builddir)/src # Override this if your project differs
