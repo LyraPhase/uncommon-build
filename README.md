@@ -60,7 +60,7 @@ use when building Docker images:
 - `help`: Output all make targets with help text.
   Hint: Add your own help text by appending `## Help text here`,
   Or prevent a target from showing up in `help` by appending: `## no-help` to
-  the recipe definition line (e.g.: `foo: foo.c ## no-help)
+  the recipe definition line (e.g.: `foo: foo.c ## no-help`)
 - `build`: Builds the Docker image
 - `save-image`: Saves the Docker image via `docker save`.
   Output defaults to: `$(top_builddir)/.uncommon-build-stamps/$(REPO_NAME).tar`
@@ -92,7 +92,7 @@ This target executes the following steps:
 3. Commit the `.uncommon-build` and `.gitmodules` file changes.
 
 *NOTE*: If you need to update `uncommon-build` to some version
-different than `origin/master` branch, set the `UNCOMMON_BUILD_REF` variable.
+different than `origin/main` branch, set the `UNCOMMON_BUILD_REF` variable.
 This accepts any `git` ref.
 For example: a branch name, tag, or commit SHA.
 
