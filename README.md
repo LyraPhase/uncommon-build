@@ -16,29 +16,11 @@ How Do That?! 🤔
 ----------------
 
 The simple way to accomplish this, naturally, is to add the following file to
-your repo:
+your repo: `.uncommon-build-init.mk`
 
-`.uncommon-build-init.mk`:
-
-<!-- markdownlint-disable MD013  -->
-```make
-ifeq (,$(wildcard .uncommon-build))
-  $(shell                                                                                        \
-    echo "\033[0;31m.uncommon-build is curiously missing... 🧐 installing submodule\033[0m" >&2; \
-    git submodule add https://github.com/LyraPhase/uncommon-build.git .uncommon-build >&2;       \
-    echo "\033[0;31mCommitting '.uncommon-build' and '.gitmodules'\033[0m" >&2                   \
-    git add .uncommon-build .gitmodules                                                          \
-    git commit -m 'Installing .uncommon-build as a submodule'                                    \
-  )
-else
-  # Ensure `.uncommon-build` is updated and committed in .gitmodules
-  $(shell git submodule update --init .uncommon-build >&2 )
-  $(shell echo "\033[0;31mUpdating '.uncommon-build' and '.gitmodules'\033[0m" >&2
-endif
-
-include .uncommon-build/main.mk
+```bash
+curl -Ls -o .uncommon-build-init.mk https://bit.ly/3K5HcJO
 ```
-<!-- markdownlint-enable MD013  -->
 
 Then, one must simply 🤌 add the following line to your `Makefile`:
 
@@ -53,7 +35,7 @@ override defaults, then one must do so before including `main.mk`.
 Finally, one must run:
 
 ```shell
-    make help
+make stylish
 ```
 
 What Does It Do? 🙋
@@ -75,6 +57,10 @@ you, and will be automatically committed.
 **Default Targets**: This `Makefile` framework creates some basic targets for
 use when building Docker images:
 
+- `help`: Output all make targets with help text.
+  Hint: Add your own help text by appending `## Help text here`,
+  Or prevent a target from showing up in `help` by appending: `## no-help` to
+  the recipe definition line (e.g.: `foo: foo.c ## no-help)
 - `build`: Builds the Docker image
 - `save-image`: Saves the Docker image via `docker save`.
   Output defaults to: `$(top_builddir)/.uncommon-build-stamps/$(REPO_NAME).tar`
