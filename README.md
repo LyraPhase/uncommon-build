@@ -41,16 +41,16 @@ make stylish
 What Does It Do? 🙋
 -------------------
 
-This short GNU `Makefile` code snippet creates a shell hook that runs each time
-you run `make`.  It's recommended to use the dot `.` prefix for
+This short GNU `Makefile` code snippet creates a target + recipe, `stylish`
+to install via `make stylish`.  It's recommended to use the dot `.` prefix for
 `.uncommon-build-init.mk`, so the installation is as unobtrusive and tucked
 away as possible.  This also allows for an elegant one-liner in your main
 `Makefile`: `include .uncommon-build-init.mk`
 
-The shell hook checks for existence of `.uncommon-build`, and installs it if
+The recipe checks for existence of `.uncommon-build`, and installs it if
 not found.
 
-If `.uncommon-build` is found, `.gitmodules` definition.
+If `.uncommon-build` is found, the `.gitmodules` definition is updated.
 If the `.uncommon-build` directory is missing the submodule will be added for
 you, and will be automatically committed.
 
