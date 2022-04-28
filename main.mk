@@ -1,8 +1,9 @@
 mkfile_path  := $(abspath $(lastword $(MAKEFILE_LIST)))
 project_dir  := $(notdir $(patsubst %/,%,$(dir $(realpath $(mkfile_path)/../))))
 # Autoconf-style vars
-top_builddir := $(basename $(patsubst %/,%,$(dir $(mkfile_path))))
-top_srcdir   ?= $(top_builddir)/src # Override this if your project differs
+top_builddir := $(patsubst %/,%,$(basename $(patsubst %/,%,$(dir $(mkfile_path)))))
+# Override this if your project differs
+top_srcdir   ?= $(top_builddir)
 build_aux    := $(top_builddir)/.uncommon-build/build-aux
 
 # Include platform detection & main vars
