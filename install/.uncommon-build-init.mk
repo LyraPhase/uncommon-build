@@ -2,6 +2,7 @@
 ## then include it in your main Makefile and run:
 ##     make stylish
 ## to install .uncommon-build as a submodule
+.PHONY: stylish
 stylish: ## no-help
 ifeq (,$(wildcard .uncommon-build))
 	@echo "\033[44m🔍\033[0m \033[0;36m... Looking for .uncommon-build ... \033[0m" >&2
