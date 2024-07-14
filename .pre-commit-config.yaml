@@ -33,7 +33,7 @@ repos:
                 vendor/.*|
                 tmp/.*
             )$
--   repo: https://github.com/trinitronx/checkmake.git
-    rev: 0.2.5
+-   repo: https://github.com/mrtazz/checkmake.git
+    rev: 0.2.2
     hooks:
     - id: checkmake
