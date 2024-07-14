@@ -12,11 +12,23 @@ WTF?
 software projects. It may be installed as a `git` `submodule` to enable your
 project `Makefile`s to be more trim, elegant, and classy. 🤵‍♂️
 
+### Prequisites
+
+- An initialized `git` repo
+- Ability to create a file in this repo: `.uncommon-build-init.mk`
+- GNU `make` command
+- Bash shell
+  - `bash` command must be available
+  - Not necessarily as your default shell
+- POSIX shell utilities: `sed`, `grep`, `echo`, `cd`, `rm`, `mkdir`, `awk`,
+  `sort`, `find`, `xargs`, `basename`
+
 How Do That?! 🤔
 ----------------
 
 The simple way to accomplish this, naturally, is to add the following file to
-your repo: `.uncommon-build-init.mk`
+your repo: `.uncommon-build-init.mk` [$^{...You\ \textbf{\textit{doOo}
+\ have\ a\ git\ repo\ already,\ yes?}$][2]
 
 ```bash
 curl -Ls -o .uncommon-build-init.mk https://bit.ly/3K5HcJO
@@ -91,9 +103,10 @@ This target executes the following steps:
 2. Fetch & Update the `git` submodule to latest
 3. Commit the `.uncommon-build` and `.gitmodules` file changes.
 
-*NOTE*: If you need to update `uncommon-build` to some version
+_NOTE_: If you need to update `uncommon-build` to some version
 different than `origin/main` branch, set the `UNCOMMON_BUILD_REF` variable.
 This accepts any `git` ref.
 For example: a branch name, tag, or commit SHA.
 
 [1]: https://go.dev/
+[2]: https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
