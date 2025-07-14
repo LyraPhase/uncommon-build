@@ -24,7 +24,8 @@ IMAGE        ?= $(REGISTRY)/$(REPO_NAME)
 GIT_COMMIT   = $(shell git rev-parse HEAD)
 IMAGE_TAG    ?= :$(shell echo $(GIT_COMMIT) | cut -c1-12 | tr -d '\n \t')
 # TODO: Update this image & migrate build from TravisCI to GitHub Actions
-BUILD_IMAGE  ?= $(REGISTRY)/trinitronx/build-tools:alpine-3.6-b78ed5e # Build tools image for container-build target
+# Build tools image for container-build target
+BUILD_IMAGE  ?= $(REGISTRY)/trinitronx/build-tools:alpine-3.6-b78ed5e
 
 DOCKER_CONFIG ?= $(build_stamps_dir)/docker
 # Delete old docker config tout de suite. (modification time > 720 min expiry)
@@ -39,7 +40,8 @@ DOCKER_FLAGS ?=
 CONTAINER_NAME         ?= $(REPO_NAME)-$(DEPLOY_TAG)
 CONTAINER_SOURCE_PATH  ?= /opt/app
 UNIQUE_DEPLOY_TAG      ?= $(shell TZ=UTC date +'%Y%m%dT%H%M%S')-$(shell git rev-parse --short HEAD)
-PUSH_LATEST            ?= true # Tag Docker image with :latest if variable is 'true'. Default: true
+# Tag Docker image with :latest if variable is 'true'. Default: true
+PUSH_LATEST            ?= true
 CONTAINER_SOURCE_FLAGS ?= -v $(CURDIR)/:$(CONTAINER_SOURCE_PATH) -w $(CONTAINER_SOURCE_PATH)
 
 # Commands to run before `container-%` target recipes run (executes inside the container).
